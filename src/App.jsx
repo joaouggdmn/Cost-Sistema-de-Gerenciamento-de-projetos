@@ -1,12 +1,11 @@
-import './App.css'
-
 function App() {
-
   return (
-    <div>
-      <h1>COST</h1>
-    </div>
-  )
+    <main className="mx-auto flex min-h-screen w-full max-w-1126px flex-col border-x border-gray-200 text-center">
+      <h1 className="my-8 font-['Open_Sans'] text-5xl font-medium tracking-tight text-blue-500 md:my-5 md:text-4xl">
+        COST
+      </h1>
+    </main>
+  );
 }
 
-export default App
+export default App;
