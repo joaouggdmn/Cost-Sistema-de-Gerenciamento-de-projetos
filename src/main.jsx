@@ -13,19 +13,15 @@ import Company from "./components/pages/Company.jsx";
 import Contact from "./components/pages/Contact.jsx";
 import NewProject from "./components/pages/NewProject.jsx";
 import Container from "./components/layout/Container.jsx";
+import Navbar from "./components/layout/Navbar.jsx";
+import Footer from "./components/layout/Footer.jsx";
+import Projects from "./components/pages/Projects.jsx";
 
 export function Layout() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="border-b">
-        <Container>
-          <nav className="flex gap-4 p-4">
-            <Link to="/home">Home</Link>
-            <Link to="/company">Company</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/new-project">New Project</Link>
-          </nav>
-        </Container>
+      <header>
+        <Navbar />
       </header>
 
       <main className="flex-1">
@@ -34,12 +30,8 @@ export function Layout() {
         </Container>
       </main>
 
-      <footer className="border-t bg-slate-50 p-4">
-        <Container>
-          <p className="text-sm text-slate-600">
-            Footer fixo em todas as páginas
-          </p>
-        </Container>
+      <footer>
+        <Footer />
       </footer>
     </div>
   );
@@ -52,6 +44,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <App /> },
       { path: "home", element: <Home /> },
+      { path: "projects", element: <Projects /> },
       { path: "company", element: <Company /> },
       { path: "contact", element: <Contact /> },
       { path: "new-project", element: <NewProject /> },
