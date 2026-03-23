@@ -21,13 +21,21 @@ function Home() {
 
             <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-lg">
               Comece a gerenciar seus projetos de forma eficiente e
-              colaborativa, com uma plataforma completa para organizar, acompanhar
-              e entregar resultados excepcionais.
+              colaborativa, com uma plataforma completa para organizar,
+              acompanhar e entregar resultados excepcionais.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-                <LinkButton to="/new-project" style="inline-flex items-center justify-center px-8 py-4 bg-linear-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105" text="+ Criar Projeto" />
-                <LinkButton to="/contact" style="inline-flex items-center justify-center px-8 py-4 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105" text="Saiba Mais" />
+              <LinkButton
+                to="/new-project"
+                style="inline-flex items-center justify-center px-8 py-4 bg-linear-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                text="+ Criar Projeto"
+              />
+              <LinkButton
+                to="/contact"
+                style="inline-flex items-center justify-center px-8 py-4 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                text="Saiba Mais"
+              />
             </div>
 
             {/* Stats */}
