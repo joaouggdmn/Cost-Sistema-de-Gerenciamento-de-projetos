@@ -2,7 +2,23 @@ import Input from "../form/Input";
 import Select from "../form/Select";
 import Button from "../form/Button";
 
+import { useEffect, useState } from "react";
+
 function ProjectForm() {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/categories", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then((data) => setCategories(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <form className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12 space-y-8">
       {/* Form Header */}
@@ -35,10 +51,7 @@ function ProjectForm() {
         <Select
           text="Categoria do Projeto"
           name="category_id"
-          options={[
-            { value: "1", label: "Infraestrutura" },
-            { value: "2", label: "Desenvolvimento" },
-          ]}
+          options={categories}
         />
       </div>
 
