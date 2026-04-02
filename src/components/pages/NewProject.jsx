@@ -20,7 +20,7 @@ function NewProject() {
       .then((data) => {
         console.log("Project created:", data);
         // Redirect to the projects page after successful creation
-        navigate("/projects", { message: "Projeto criado com sucesso!" });
+        navigate("/projects", { state: { message: "Projeto criado com sucesso!" } });
       })
       .catch((error) => {
         console.error("Error creating project:", error);
