@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 
 function Projects() {
   const [projects, setProjects] = useState([]);
+  const [projectMessage, setProjectMessage] = useState("");
   const [removeLoading, setRemoveLoading] = useState(false);
 
   const location = useLocation();
@@ -34,6 +35,21 @@ function Projects() {
     }, 1000);
   }, []);
 
+  function removeProject(id) {
+    fetch(`http://localhost:5000/projects/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((resp) => resp.json())
+      .then(() => {
+        setProjects(projects.filter((project) => project.id !== id));
+        // message
+        setProjectMessage("Projeto removido com sucesso!");
+      });
+  }
+
   return (
     <div className="w-full p-8">
       <div className="flex justify-between items-center mb-8">
@@ -45,6 +61,7 @@ function Projects() {
         />
       </div>
       {message && <Message type="success" msg={message} />}
+      {projectMessage && <Message type="success" msg={projectMessage} />}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.length > 0 &&
           projects.map((project) => (
@@ -54,11 +71,14 @@ function Projects() {
               budget={project?.budget}
               category={project?.category?.name}
               key={project?.id}
+              handleRemove={removeProject}
             />
           ))}
         {!removeLoading && <Loading />}
         {removeLoading && projects.length === 0 && (
-          <p className="text-center text-gray-500">Não há projetos cadastrados.</p>
+          <p className="text-center text-gray-500">
+            Não há projetos cadastrados.
+          </p>
         )}
       </div>
     </div>

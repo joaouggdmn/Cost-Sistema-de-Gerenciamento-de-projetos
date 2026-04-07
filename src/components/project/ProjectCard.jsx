@@ -9,9 +9,14 @@ function ProjectCard({ id, name, budget, category, handleRemove }) {
       Design: "bg-purple-500",
       Marketing: "bg-orange-500",
       Agência: "bg-pink-500",
-      Financeiro: "bg-cyan-500"
+      Financeiro: "bg-cyan-500",
     };
     return colors[categoryName] || "bg-slate-500";
+  };
+
+  const remove = (e) => {
+    e.preventDefault();
+    handleRemove(id);
   };
 
   return (
@@ -33,11 +38,14 @@ function ProjectCard({ id, name, budget, category, handleRemove }) {
         </span>
       </p>
       <div className="flex gap-3">
-        <Link to="/" className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 font-semibold text-sm">
+        <Link
+          to="/"
+          className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 font-semibold text-sm"
+        >
           <BsPencil /> Editar
         </Link>
         <button
-          onClick={() => handleRemove(id)}
+          onClick={remove}
           className="flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors duration-200 font-semibold text-sm"
         >
           <BsFillTrashFill /> Remover
