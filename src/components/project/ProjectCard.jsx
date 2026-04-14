@@ -39,7 +39,7 @@ function ProjectCard({ id, name, budget, category, handleRemove }) {
       </p>
       <div className="flex gap-3">
         <Link
-          to="/"
+          to={`/projects/${id}`}
           className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 font-semibold text-sm"
         >
           <BsPencil /> Editar
