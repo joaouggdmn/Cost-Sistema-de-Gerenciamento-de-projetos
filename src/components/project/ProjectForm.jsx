@@ -1,5 +1,4 @@
 import Input from "../form/Input";
-import MoneyInput from "../form/MoneyInput";
 import Select from "../form/Select";
 import Button from "../form/Button";
 
@@ -27,7 +26,12 @@ function ProjectForm({ onSubmit, btnText, projectData }) {
   };
 
   function handleChange(e) {
-    setProject({ ...project, [e.target.name]: e.target.value });
+    const {name, value} = e.target;
+    setProject({
+      ...project,
+      [name]: name === "budget" ? parseFloat(value) : value,
+    })
+  
   }
 
   function handleCategory(e) {
@@ -58,7 +62,8 @@ function ProjectForm({ onSubmit, btnText, projectData }) {
         />
 
         {/* Budget */}
-        <MoneyInput
+        <Input
+          type="number"
           text="Orçamento Total"
           name="budget"
           placeholder="0.00"

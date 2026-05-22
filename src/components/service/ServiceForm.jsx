@@ -1,6 +1,5 @@
 import SubmitButton from "../form/Button";
 import Input from "../form/Input";
-import MoneyInput from "../form/MoneyInput";
 import { useState } from "react";
 
 function ServiceForm({ handleSubmit, textBtn, projectData }) {
@@ -13,7 +12,11 @@ function ServiceForm({ handleSubmit, textBtn, projectData }) {
   }
 
   function handleChange(e) {
-    setService({ ...service, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setService({
+      ...service,
+      [name]: name === "cost" ? parseFloat(value) : value,
+    });
   }
 
   return (
@@ -28,7 +31,8 @@ function ServiceForm({ handleSubmit, textBtn, projectData }) {
         placeholder="Digite o nome do serviço"
         handleOnChange={handleChange}
       />
-      <MoneyInput
+      <Input
+        type="number"
         text="Custo do Serviço"
         name="cost"
         placeholder="0.00"

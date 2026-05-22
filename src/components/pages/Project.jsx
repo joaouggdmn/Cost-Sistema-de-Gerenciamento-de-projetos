@@ -6,7 +6,6 @@ import ProjectForm from "../project/ProjectForm";
 import Message from "../layout/Message";
 import ServiceForm from "../service/ServiceForm";
 import ServiceCard from "../service/ServiceCard";
-import formatCurrency from "../../utils/formatCurrency";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -18,14 +17,6 @@ function Project() {
   const [message, setMessage] = useState();
   const [type, setType] = useState();
   const [showSf, setShowSf] = useState(false);
-
-  const toNumber = (value) => {
-    const normalized = String(value ?? "")
-      .replace(/\./g, "")
-      .replace(",", ".");
-    const parsed = Number(normalized);
-    return Number.isFinite(parsed) ? parsed : 0;
-  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -84,49 +75,54 @@ function Project() {
   }
 
   function createService() {
-    setMessage(""); // Limpa mensagens anteriores
+    setMessage("");
+
     if (!project.services || project.services.length === 0) {
       setMessage("Adicione os dados do servico antes de salvar.");
       setType("error");
       return false;
     }
-    //last service
-    const lastService = project.services[project.services.length - 1];
-    lastService.id = uuidv4();
 
-    const LastServiceCost = lastService.cost;
-    const newCost = toNumber(project.cost) + toNumber(LastServiceCost);
-    // maximum value validation
-    if (newCost > toNumber(project.budget)) {
+    // ✅ Cria uma cópia do último serviço em vez de mutar
+    const lastService = {
+      ...project.services[project.services.length - 1],
+      id: uuidv4(),
+    };
+
+    const newCost = project.cost + lastService.cost;
+
+    if (newCost > project.budget) {
       setMessage("Orçamento ultrapassado, verifique o valor do serviço!");
       setType("error");
       project.services.pop();
+      setShowSf(false);
       return false;
     }
 
-    //add service cost to project total cost
-    project.cost = newCost;
+    // ✅ Cria um novo objeto de projeto em vez de mutar o existente
+    const updatedProject = {
+      ...project,
+      cost: newCost,
+      services: [
+        ...project.services.slice(0, -1), // todos menos o último
+        lastService, // último com o id novo
+      ],
+    };
 
-    // update project
     fetch(`http://localhost:5000/projects/${project.id}`, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(project),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedProject),
     })
       .then((resp) => resp.json())
       .then((data) => {
-        // exibir os serviços
         setProject(data);
         setServices(data.services || []);
         setShowSf(false);
         setMessage("Serviço adicionado com sucesso!");
         setType("success");
       })
-      .catch((err) => {
-        console.error("Erro ao adicionar serviço:", err);
-      });
+      .catch((err) => console.error("Erro ao adicionar serviço:", err));
   }
 
   function removeService(id, cost) {
@@ -137,7 +133,7 @@ function Project() {
     const projectUpdated = {
       ...project,
       services: servicesUpdated,
-      cost: toNumber(project.cost) - toNumber(cost),
+      cost: project.cost - cost,
     };
 
     fetch(`http://localhost:5000/projects/${projectUpdated.id}`, {
@@ -195,7 +191,7 @@ function Project() {
                       Orcamento total
                     </p>
                     <p className="text-lg font-semibold text-blue-600">
-                      {formatCurrency(project.budget)}
+                      {project.budget}
                     </p>
                   </div>
                   <div className="bg-slate-50 rounded-xl p-5 border border-slate-200">
@@ -203,7 +199,7 @@ function Project() {
                       Total utilizado
                     </p>
                     <p className="text-lg font-semibold text-slate-900">
-                      {formatCurrency(project.cost)}
+                      {project.cost}
                     </p>
                   </div>
                 </div>

@@ -14,6 +14,7 @@ function Input({ type, text, name, placeholder, handleOnChange, value }) {
         placeholder={placeholder}
         onChange={handleOnChange}
         value={value}
+        onWheel={(e) => e.target.blur()}
         className="px-4 py-3 border-2 border-slate-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 text-slate-900 placeholder-slate-400"
       />
     </div>
