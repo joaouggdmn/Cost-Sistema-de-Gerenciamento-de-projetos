@@ -1,72 +1,6 @@
 {
   "projects": [
     {
-      "id": "7ab1",
-      "name": "Contratar contador",
-      "budget": "10000",
-      "category": {
-        "id": "6",
-        "name": "Financeiro"
-      },
-      "cost": 10,
-      "services": [
-        {
-          "name": "teste",
-          "cost": "1000",
-          "description": "teste de serviço",
-          "id": "668c66d7-d54c-4048-99dc-685d0738104d"
-        },
-        {
-          "name": "teste",
-          "cost": "1000",
-          "description": "teste de serviço",
-          "id": "668c66d7-d54c-4048-99dc-685d0738104d"
-        },
-        {
-          "name": "teste",
-          "cost": "1000",
-          "description": "teste de serviço",
-          "id": "668c66d7-d54c-4048-99dc-685d0738104d"
-        },
-        {
-          "name": "teste",
-          "cost": "1000",
-          "description": "teste de serviço",
-          "id": "668c66d7-d54c-4048-99dc-685d0738104d"
-        },
-        {
-          "name": "teste",
-          "cost": "1000",
-          "description": "teste de serviço",
-          "id": "668c66d7-d54c-4048-99dc-685d0738104d"
-        },
-        {
-          "name": "teste",
-          "cost": "10",
-          "description": "teste de serviço",
-          "id": "9aa6acdf-812b-45f1-9320-a2825fc600ec"
-        }
-      ]
-    },
-    {
-      "id": "4495",
-      "name": "teste normal apenas",
-      "budget": "1000",
-      "category": {
-        "id": "1",
-        "name": "Infraestrutura"
-      },
-      "cost": 1000,
-      "services": [
-        {
-          "name": "asas",
-          "cost": "1000.00",
-          "description": "teste",
-          "id": "59c7d0f4-9a3a-4799-ba18-cdbb32327b12"
-        }
-      ]
-    },
-    {
       "id": "9515",
       "name": "Testeeeee final",
       "budget": "67",
@@ -78,61 +12,37 @@
       "services": []
     },
     {
-      "id": "000d",
-      "name": "At testeee",
-      "budget": "3232221",
-      "category": {
-        "id": "2",
-        "name": "Agência"
-      },
-      "cost": 3222,
-      "services": [
-        {
-          "name": "teste 1",
-          "cost": "2001",
-          "description": "teste de serviço",
-          "id": "bb8c9da5-7f66-4bcf-8c32-365ea78167d8"
-        },
-        {
-          "name": "asasas",
-          "cost": "1221",
-          "description": "teste de serviço",
-          "id": "ba440eb6-cbdb-4321-acd9-95e6878c3cab"
-        }
-      ]
-    },
-    {
-      "id": "e298",
-      "budget": "29199",
-      "name": "teste orc",
+      "id": "80fb",
+      "name": "testeeeeue",
+      "budget": 1000,
       "category": {
         "id": "6",
         "name": "Financeiro"
       },
-      "cost": 0,
+      "cost": -100,
       "services": []
     },
     {
-      "id": "436a",
-      "name": "teste 2 orc",
-      "budget": "1100089.89",
+      "id": "41c2",
+      "name": "teste",
+      "budget": 1000,
       "category": {
-        "id": "6",
-        "name": "Financeiro"
+        "id": "3",
+        "name": "Desenvolvimento"
       },
-      "cost": 3334.3199999999997,
+      "cost": 999,
       "services": [
         {
-          "name": "teste desds",
-          "cost": "1000.99",
-          "description": "testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee      eeeeeeeeeeee",
-          "id": "5a2adb4e-b9af-42e2-b896-9a174ac79a0b"
+          "name": "teste real",
+          "cost": 900,
+          "description": "daas",
+          "id": "7ac65221-fcc3-4555-9cf4-01f34aa0d58d"
         },
         {
-          "name": "dssssssssssssssssss",
-          "cost": "2333.33",
-          "description": "232322323",
-          "id": "688a2ab9-306a-400e-ba7e-fd5428385a9f"
+          "name": "teste",
+          "cost": 100,
+          "description": "as",
+          "id": "59672c0f-8e2c-46eb-b7da-9cf6f7f37386"
         }
       ]
     }
