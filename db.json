@@ -1,52 +1,5 @@
 {
-  "projects": [
-    {
-      "id": "9515",
-      "name": "Testeeeee final",
-      "budget": "67",
-      "category": {
-        "id": "3",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "80fb",
-      "name": "testeeeeue",
-      "budget": 1000,
-      "category": {
-        "id": "6",
-        "name": "Financeiro"
-      },
-      "cost": -100,
-      "services": []
-    },
-    {
-      "id": "41c2",
-      "name": "teste",
-      "budget": 1000,
-      "category": {
-        "id": "3",
-        "name": "Desenvolvimento"
-      },
-      "cost": 999,
-      "services": [
-        {
-          "name": "teste real",
-          "cost": 900,
-          "description": "daas",
-          "id": "7ac65221-fcc3-4555-9cf4-01f34aa0d58d"
-        },
-        {
-          "name": "teste",
-          "cost": 100,
-          "description": "as",
-          "id": "59672c0f-8e2c-46eb-b7da-9cf6f7f37386"
-        }
-      ]
-    }
-  ],
+  "projects": [],
   "categories": [
     {
       "id": "1",
