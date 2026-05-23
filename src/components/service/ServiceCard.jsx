@@ -15,7 +15,7 @@ function ServiceCard({ id, name, cost, description, handleRemove }) {
           {cost}
         </span>
       </div>
-      <p className="mt-3 text-sm text-slate-600 break-words">{description}</p>
+      <p className="mt-3 text-sm text-slate-600 wrap-break-word">{description}</p>
       <div className="mt-6 flex items-center justify-between">
         <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
           Serviço
