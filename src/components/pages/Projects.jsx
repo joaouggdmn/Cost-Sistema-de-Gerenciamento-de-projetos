@@ -76,9 +76,11 @@ function Projects() {
           ))}
         {!removeLoading && <Loading />}
         {removeLoading && projects.length === 0 && (
-          <p className="text-center text-gray-500">
-            Não há projetos cadastrados.
-          </p>
+          <div className="col-span-full p-10 bg-slate-50 border-2 border-dashed border-slate-300 rounded-xl flex items-center justify-center">
+            <p className="text-lg font-medium text-slate-600">
+              Não há projetos cadastrados.
+            </p>
+          </div>
         )}
       </div>
     </div>
