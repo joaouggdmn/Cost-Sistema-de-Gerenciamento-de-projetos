@@ -1,5 +1,6 @@
 import { BsPencil, BsFillTrashFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { formatCurrency } from "../../utils/format";
 
 function ProjectCard({ id, name, budget, category, handleRemove }) {
   const getCategoryColor = (categoryName) => {
@@ -24,7 +25,7 @@ function ProjectCard({ id, name, budget, category, handleRemove }) {
       <h4 className="text-xl font-bold text-slate-900 mb-4">{name}</h4>
       <p className="text-slate-700 mb-2">
         <span className="font-semibold">Orçamento: </span>
-        <strong className="text-blue-600">R$ {budget}</strong>
+        <strong className="text-blue-600">R$ {formatCurrency(budget)}</strong>
       </p>
       <p className="text-slate-700 mb-6">
         <span className="font-semibold">Categoria: </span>
