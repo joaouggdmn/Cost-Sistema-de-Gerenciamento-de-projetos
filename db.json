@@ -1,5 +1,24 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "id": "dd81",
+      "name": "Contratar contador",
+      "budget": 10000,
+      "category": {
+        "id": "6",
+        "name": "Financeiro"
+      },
+      "cost": 5667.99,
+      "services": [
+        {
+          "name": "contador bao",
+          "cost": 5667.99,
+          "description": "esse é porreta e baludo",
+          "id": "1b9fb29e-30e6-4a59-aa81-2fe3a7676ed8"
+        }
+      ]
+    }
+  ],
   "categories": [
     {
       "id": "1",
